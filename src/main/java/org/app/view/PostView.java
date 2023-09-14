@@ -9,4 +9,7 @@ public class PostView {
         System.out.print("\nInput post id: ");
         return scanner.nextLine();
     }
+    public void getOutput(String output) {
+        System.out.println(output);
+    }
 }
