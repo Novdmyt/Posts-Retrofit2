@@ -28,4 +28,20 @@ public class PostModel {
 
         return optional;
     }
+    public Optional<Response<Post>> fetchPostById(int id) {
+
+        ApiClient client = new ApiClient();
+        ApiService service = client.getApiService();
+
+        Call<Post> call = service.getPostById(id);
+        Optional<Response<Post>> optional;
+
+        try {
+            optional = Optional.of(call.execute());
+        } catch (Exception ex) {
+            optional = Optional.empty();
+        }
+
+        return optional;
+    }
 }
