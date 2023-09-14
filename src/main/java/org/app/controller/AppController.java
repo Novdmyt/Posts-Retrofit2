@@ -11,6 +11,10 @@ public class AppController {
         this.model = model;
         this.view = view;
     }
+
+    public void runApp() {
+        filterChoice(view.chooseOption());
+    }
      private void filterChoice(String choice) {
         switch (choice) {
             case "1" -> model.readPost();
@@ -18,5 +22,6 @@ public class AppController {
             case "0" -> view.getOutput(" App closed");
             default -> view.getOutput("Unexpected value: " + choice);
         }
+
     }
 }
