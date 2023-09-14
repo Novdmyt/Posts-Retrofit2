@@ -11,6 +11,7 @@ public interface ApiService {
     @GET("posts")
     Call<List<Post>> getPosts();
 
-
+    @GET("posts/{id}")
+    Call<Post> getPostById(@Path("id") int id);
 }
 
