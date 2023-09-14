@@ -16,4 +16,21 @@ public class Post {
         this.title = title;
         this.body = body;
     }
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    @Override
+    public String toString() {
+        return "\nPost №" + id + "\n" + title.toUpperCase() + "\n" + body + "\n";
+    }
 }
+
