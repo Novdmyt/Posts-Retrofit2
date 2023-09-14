@@ -1,6 +1,7 @@
 package org.app.controller;
 
 import org.app.model.PostModel;
+import org.app.utils.AppStarter;
 import org.app.view.PostView;
 
 public class PostController {
@@ -11,4 +12,5 @@ public class PostController {
         this.model = model;
         this.view = view;
     }
+
 }
