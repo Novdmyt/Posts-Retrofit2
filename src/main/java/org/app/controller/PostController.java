@@ -1,5 +1,4 @@
 package org.app.controller;
-
 import org.app.entity.Post;
 import org.app.model.PostModel;
 import org.app.utils.AppStarter;
@@ -12,6 +11,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class PostController {
+
     private final PostModel model;
     private final PostView view;
 
@@ -19,6 +19,23 @@ public class PostController {
         this.model = model;
         this.view = view;
     }
+
+    public void getPosts() {
+        view.getOutput(readPosts());
+        AppStarter.startApp();
+    }
+
+    public void getPostById() {
+        String output;
+        try {
+            output = readPostById(Integer.parseInt(view.getPostId()));
+        } catch (NumberFormatException e) {
+            output = Constants.WRONG_ID_MSG;
+        }
+        view.getOutput(output);
+        AppStarter.startApp();
+    }
+
     private String readPostById(int id) {
         Optional<Response<Post>> optional = model.fetchPostById(id);
 
@@ -31,6 +48,7 @@ public class PostController {
         }
         return Constants.NO_DATA_MSG;
     }
+
     private String readPosts() {
         Optional<Response<List<Post>>> optional = model.fetchPosts();
 
